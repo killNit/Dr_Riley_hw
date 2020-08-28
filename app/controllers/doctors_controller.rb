@@ -1,5 +1,4 @@
 class DoctorsController < ApplicationController
-
   before_action :set_doctor, only: [:show, :edit, :update, :destroy]
   
   def index
@@ -40,14 +39,13 @@ class DoctorsController < ApplicationController
 
   def destroy
     # @doctor = Doctor.find(params[:id])
-    @doctor.destroy
-      redirect_to doctors_path
-  end
+  @doctor.destroy
+   end
 
   private
 
   def doctor_params
-  params.require(:doctor).permit(name)
+  params.require(:doctor).permit(:name)
   end
 
   def set_doctor

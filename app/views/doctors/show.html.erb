@@ -2,4 +2,5 @@
 <%= @doctor.name %>
 
 <%= link_to "Home", doctors_path %>
-<%= link_to "Edit Doctor", edit_doctor_path %>
+<%= link_to "Edit", edit_doctor_path(doctor) %>
+<%= link_to "Delete", book_path(@doctor), method: :delete %>

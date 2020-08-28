@@ -1,0 +1,13 @@
+<h1><%= @doctor.id ? "Edit #{@doctor.name}" : "Add Doctor" %>/h1>
+<br />
+<br /> 
+
+<% form_for @doctor do |f| %>
+    <div>
+    <%= f.label :name %>
+    <%= f.text_field :name, required: true, placeholder:"Dr.Mcstuffins" %>
+    </div>
+     
+    
+    <%= f.submit %>
+    <%end%>

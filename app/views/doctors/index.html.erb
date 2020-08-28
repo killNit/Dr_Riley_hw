@@ -3,6 +3,5 @@
 <% @doctors.each do |doctor| %>
     <h2>DR: <%= doctor.name %></h2>
 <%= link_to "View Doctor", doctor_path(doctor) %>
-<%= link_to "Edit", edit_doctor_path(doctor) %>
 <% end %>
    

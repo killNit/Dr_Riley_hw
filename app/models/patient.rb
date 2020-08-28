@@ -1,3 +1,3 @@
 class Patient < ApplicationRecord
-has_many :apointments, dependant: :destroy
+has_many :apointments, dependent: :destroy
 end

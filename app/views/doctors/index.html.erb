@@ -3,6 +3,9 @@
 <h3>Choose a Doctor from the list below.........<b>at your own risk</b>
 <hr />
 <%= link_to "Testamonials", patients_path %>
+<hr />
+<hr />
+<%=link_to "Book an appointment today!", new_patient_appointment_path %>
 <% @doctors.each do |doctor| %>
     <h2>DR: <%= doctor.name %></h2>
 <%= link_to "View Doctor", doctor_path(doctor) %>

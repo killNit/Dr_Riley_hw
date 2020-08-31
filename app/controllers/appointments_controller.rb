@@ -1,7 +1,9 @@
 class AppointmentsController < ApplicationController
   def index
-    @doctors = @patient.appointment.all 
-    @patient = @doctor.appointment.all
+    @patient = Patient.find.(params[:id])
+    @appointment = @patient.appointment.where(@doctor.appointment[:id] == @patient.appointment(:id)).all 
+    # @patient = @doctor.appointment.where(@doctor.appointment(:id) == @patient.appointment(:id))
+
   end
 
   def show
@@ -9,7 +11,11 @@ class AppointmentsController < ApplicationController
   end
 
   def new
-    @appointment = @patient.appointment.new
+    binding.pry
+    @patient = Patient.find(params[:id])
+     @doctor = Doctor.find(params[:id])
+    #   render :_new_appointment
+    # @appointment = @doctor.appointment.new 
   end
 
   def create 
@@ -25,12 +31,15 @@ class AppointmentsController < ApplicationController
     @appointment = @patient.appointment.find(params[:id])
   end
 
-  def destroy @appointment = @patient.appointment.find(params[:id])
+  def destroy 
+  @appointment = @patient.appointment.find(params[:id])
    @appointment.destroy
    redirect_to root
   end
 
-private
-def appointment_params
-  params.require(:appointment).permit(:doctor.id, :patient.id)
+  private
+  def appointment_params
+  params.require(:appointment).permit(:doctor.id, :patient.id, :date)
+  end
+
 end

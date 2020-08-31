@@ -2,7 +2,7 @@
 <h2>South Park Medical Center</h2>
 <hr />
 <%= link_to "Back to Doctors", doctors_path %>
-<%= link_to "Book an appointment today", new_patient_appointment_path %> 
+
 <% @patients.each do |patient| %>
     <h2>Name: <%= patient.name %></h2>
 <%= link_to "Patient Profile", patient_path(patient) %>
